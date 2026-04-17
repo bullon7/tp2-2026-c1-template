@@ -12,18 +12,19 @@ app.use(cors());
 app.use(express.json());
 
 // Rutas
-app.get("/api/users", userRoutes);
+app.use("/api/users", userRoutes);      
 
 // Ruta base
 app.get('/', (req, res) => {
     res.send("API funcionando 🚀");
 });
 
+
 app.use((req, res) => {
     res.status(404).json({ message: "Ruta no encontrada" });
 });
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {      
     const status = err.status || 500;
     const message = err.message || "Error interno del servidor";
     res.status(status).json({ message });
