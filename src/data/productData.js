@@ -13,3 +13,6 @@ const mockProducts = [
     { id: "12", name: "SSD Samsung 970 EVO 1TB", brand: "Samsung", category: "almacenamiento", price: 140000, stock: 18 }
 ];
 
+export function findAllProducts() {
+    return mockProducts;
+}
